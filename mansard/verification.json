@@ -1,0 +1,24 @@
+{
+  "saved_file_reopened": true,
+  "ridge_height_above_wood_floor_m": 5.0,
+  "ridge_absolute_m": 8.250639915466309,
+  "floor_level_m": 3.2506399154663086,
+  "preserved_existing_meshes": 437,
+  "original_house_file_unchanged": true,
+  "black_roofs_and_deck_unchanged": true,
+  "closed_roof_room_solids": 16,
+  "south_dormer_roof_cutout_verified": true,
+  "doorway_clear_of_walls": true,
+  "door_nominal_width_m": 1,
+  "door_height_m": 2.2,
+  "south_room_gross_area_m2": 18.221056000000004,
+  "uncovered_upper_terrace_area_m2": 89.7639,
+  "railing_height_m": 1.1000003814697266,
+  "guarded_deck_perimeter_m": 55.46000158707992,
+  "railing_posts": 41,
+  "preview_scenes": [
+    "18 Mansard concept",
+    "19 Mansard plan",
+    "20 South dormer and terrace"
+  ]
+}

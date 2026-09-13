@@ -1,20 +1,29 @@
 # Saguramo house model
 
-## Second-floor concept
+## Second-floor concept: mansard and south terrace room
 
-Open **Saguramo_House_Second_Floor_Concept.blend** for the current concept on `feat/second-floor`. The red roof is replaced by one continuous, flat, timber-finished floor with a **300mm thickness** and its top **100mm above the highest black-roof point**, including the corrugation crests. The current top is **3.25064m** and underside **2.95064m** above the main floor. The floor follows the former red roof's 177.1064m² footprint, including its existing overhangs and corner section. Both black roofs retain their original geometry, slopes, corrugations, soffits and associated trim. **No mansard or upper-storey walls have been added.**
+Open **Saguramo_House_Second_Floor_Concept.blend** on `feat/second-floor`. The roof follows the owner's marked red rectangle and blue ridge: two straight slopes form an upside-down V, with the highest ridge crest **5.00m above the wooden floor** (8.25064m above the main floor). The traced footprint is approximately **8.05 × 10.85m**.
 
-The natural oak board finish is procedural. Floor thickness and roof clearance follow the owner’s dimensions; board sizes are illustrative. Superseded ceilings within this footprint are removed, while ceiling portions below the black roof remain. Hidden wall-top vertices have a 1mm render clearance below the floor; wall footprints, openings and all lower vertices are retained.
+A broad shed dormer on the **south slope (negative local X)** contains an enclosed room, inspired by the supplied structural reference. Its black-framed central glazed door opens directly onto the upper wooden terrace, with full-height fixed glazing on both sides. The main sloping roof has an actual cut-out around the dormer. Timber-clad cheeks, front piers, rear wall and a sloping ceiling enclose the room. Its approximately 18.22m² gross footprint, 1.00m door width, 2.20m door height, cladding and charcoal roof finish are concept choices.
 
-The existing-house file **Saguramo_House_Roof_Updated.blend** remains unchanged. Scenes **15 Second floor concept**, **16 Second floor plan** and **17 Timber floor detail** show the new concept. Preview and validation files are in `second-floor/`.
+The uncovered wooden floor is the upper terrace, with **1.10m black vertical-bar railings around its outer exposed perimeter**. The floor remains 300mm thick, with its top at 3.25064m, exactly 100mm above the highest existing black-roof crest. Its 177.1064m² footprint is unchanged. Both original black roofs and all 437 meshes from the flat-floor stage remain unchanged. The existing-house reference **Saguramo_House_Roof_Updated.blend** is preserved byte for byte.
+
+Scenes **18 Mansard concept**, **19 Mansard plan** and **20 South dormer and terrace** show the current stage. Renders, references, geometry and saved-file verification are in `mansard/`. Scenes 15–17 remain available; previews in `second-floor/` record the earlier flat-floor stage.
+
+![Mansard and south terrace room](mansard/concept.png)
+
+Rebuild in this order; the first builder resets the concept to the historical flat-floor stage before the mansard is reapplied:
 
 ```bash
 .venv/bin/python second-floor/prepare_floor.py
 blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python second-floor/build_concept.py
 blender --background Saguramo_House_Second_Floor_Concept.blend --python second-floor/verify_concept.py
+.venv/bin/python mansard/prepare_mansard.py
+blender --background Saguramo_House_Second_Floor_Concept.blend --threads 8 --python mansard/build_mansard.py
+blender --background Saguramo_House_Second_Floor_Concept.blend --python mansard/verify_mansard.py
 ```
 
-Verification reopens the concept, checks the 300mm thickness, 100mm clearance above the evaluated black roof, planar surface and closed floor solid, confirms removal of all red roof objects, checks the preserved black roof slopes and 409 unchanged meshes, and verifies the source house file remains byte-for-byte unchanged. Rebuilding this stage resets the concept to the current flat-floor design.
+Final verification reopens the saved model and checks the exact ridge height, 16 closed roof/room solids, actual dormer roof opening, doorway clearance, railing height and preservation of every baseline mesh. The earlier flat-stage validator checks deck thickness, clearance, original black-roof slopes and removal of red roof geometry before the new roof is added.
 
 ## Existing house: two columns per railing and matching terrace tiles
 
