@@ -31,6 +31,14 @@ blender --background Saguramo_House_Second_Floor_Concept.blend --python mansard/
 
 Final verification reopens the saved model and confirms both 1.50m end terraces, the expanded deck footprint and unchanged deck height/thickness, the centered ridge and end doors, equal roof pitches and 5m ridge height. It checks full west and south guards, the clear stair opening, all three glazed wall openings and 35 closed deck/roof/room/stair solids. All 436 protected house meshes and 150 existing stair meshes are identical. The earlier flat-stage validator applies before the terrace expansion and mansard builder.
 
+## Exterior renders at 2m and 10m
+
+Eight **1920 × 1440 PNGs** show the current model from the southeast corner, southwest corner, south side and west side, with perspective cameras 2m and 10m above the model's outdoor ground surface. Each height pair uses the same horizontal position and lens. The source Blender model is unchanged.
+
+[Open the render gallery](renders/exterior-heights/index.html) · [Download all eight PNGs](renders/exterior-heights/exterior-renders.zip) · [Camera details and reproduction](renders/exterior-heights/README.md)
+
+![Exterior views at both heights](renders/exterior-heights/comparison.jpg)
+
 ## Existing house: two columns per railing and matching terrace tiles
 
 The Terrace 1 side of the basement railing now terminates at the existing black canopy column. Each railing has one additional 85mm square roof-height column, with its centre **1.00m from Bathroom 2's exterior wall** along the railing. The west railing also has a full-height end column replacing its former short end post, so **both east and west railings now have two full-height columns**. Their tops fit the existing sloping soffit. The east railing remains as previously approved; stair access remains open.

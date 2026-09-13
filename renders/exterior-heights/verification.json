@@ -1,0 +1,56 @@
+{
+  "source_model_unchanged": true,
+  "camera_heights_verified": [
+    2,
+    10
+  ],
+  "ground_datum_m": -0.7400000095367432,
+  "pair_xy_and_lens_identical": true,
+  "unique_images": 8,
+  "resolution": [
+    1920,
+    1440
+  ],
+  "files": [
+    {
+      "file": "02m/south-east.png",
+      "bytes": 2556884,
+      "sha256": "a725278242edf79d749757e584b49e2e41724b4d2d93b52d48302225129c6b04"
+    },
+    {
+      "file": "10m/south-east.png",
+      "bytes": 2764248,
+      "sha256": "4a5e0dbc24151ab1b5dd4573a4885bcf2b423b1d5178248f6e7fee4155f3acd5"
+    },
+    {
+      "file": "02m/south-west.png",
+      "bytes": 2469592,
+      "sha256": "b0f8ec65de303b757878981efc2cfef74117f49e85a7e669565b6aa95bee9a03"
+    },
+    {
+      "file": "10m/south-west.png",
+      "bytes": 2741329,
+      "sha256": "00df49b8fae154f17c349ea3f660dabc0221feb7d2ef8b4d859c2d6457bdb9de"
+    },
+    {
+      "file": "02m/south.png",
+      "bytes": 2425802,
+      "sha256": "a2f6bcbd3822d3e53ea34700448df460ca598c9e5dd866d05aeff1746395a95c"
+    },
+    {
+      "file": "10m/south.png",
+      "bytes": 2574537,
+      "sha256": "4088902625f178001619d12ec909c709221b71964294a666c84d27ac35946ef5"
+    },
+    {
+      "file": "02m/west.png",
+      "bytes": 2409089,
+      "sha256": "832cafb5deb79546a0c9446438cd62f3f38e2a9645a2bed78e42aaf792444eb5"
+    },
+    {
+      "file": "10m/west.png",
+      "bytes": 2564780,
+      "sha256": "40a0c467a1d7d19d8734740d178834a0fc51a25205043334ef021b2a2e6e714f"
+    }
+  ]
+}
