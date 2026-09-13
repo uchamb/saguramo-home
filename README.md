@@ -1,19 +1,21 @@
 # Saguramo house model
 
-## Latest: railing columns and Terrace 1 tiles
+## Latest: two columns per railing and matching terrace tiles
 
-The Terrace 1 side of the basement railing now terminates at the existing black canopy column. Each railing has one additional 85mm square roof-height column, with its centre **1.00m from Bathroom 2's exterior wall** along the railing. Their tops fit the existing sloping soffit. The terrace-side run is aligned with the existing column; stair access remains open.
+The Terrace 1 side of the basement railing now terminates at the existing black canopy column. Each railing has one additional 85mm square roof-height column, with its centre **1.00m from Bathroom 2's exterior wall** along the railing. The west railing also has a full-height end column replacing its former short end post, so **both east and west railings now have two full-height columns**. Their tops fit the existing sloping soffit. The east railing remains as previously approved; stair access remains open.
 
-Terrace 1 and its entry steps now have square tiles with mottled grey, taupe and brown colouring, pale weathered patches and thin grout joints, based on the owner's tile photograph. **500mm tile size is an estimate**, not a supplied measurement. This is a self-contained procedural Blender material. Scene **13 Basement railings** shows the corrected supports and scene **14 Terrace 1 tiles** shows the finish; current previews are in `terrace-update/`.
+Terrace 1, Terrace 2 and the Terrace 1 entry steps share the same square-tile material with mottled grey, taupe and brown colouring, pale weathered patches and thin grout joints, based on the owner's tile photograph. **500mm tile size is an estimate**, not a supplied measurement. This is a self-contained procedural Blender material. Scene **13 Basement railings** shows the corrected supports and scene **14 Terrace 1 tiles** shows the finish; current previews are in `terrace-update/`.
 
 Apply this final stage after the door/railing stage below:
 
 ```bash
 blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python terrace-update/update_terrace.py
 blender --background Saguramo_House_Roof_Updated.blend --python terrace-update/verify_terrace.py
+blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python terrace-update/match_west_columns.py
+blender --background Saguramo_House_Roof_Updated.blend --python terrace-update/verify_final_terraces.py
 ```
 
-Saved-file validation confirms the two column offsets and roof joins, direct contact between the terrace railing and existing column, 81 closed replacement/additional railing meshes, 410 unchanged unrelated meshes, and unchanged geometry for all five newly tiled floor/step meshes. The earlier validators apply to their respective build stages.
+Final saved-file validation confirms two full-height columns per railing, the west end column’s roof and railing contacts, identical materials on both terraces, unchanged floor geometry, and preservation of the east railing and unrelated meshes. See `terrace-update/final_verification.json`. Earlier validators apply to their respective build stages.
 
 ## Childroom terrace door and basement railings
 

@@ -1,0 +1,8 @@
+FINAL OWNER CORRECTIONS
+West basement railing now has two full-height black columns, matching the
+east railing's two-column arrangement. Existing east railing remains unchanged.
+The added west end column replaces the former short end post and meets the
+canopy soffit. Both rails meet the column face. The previously specified
+columns 1m from Bathroom 2 stay in place.
+Terrace 1 and Terrace 2 now share exactly the same grey/taupe/brown tile shader.
+All floor geometry is unchanged. Tile size remains an estimated 500mm.
