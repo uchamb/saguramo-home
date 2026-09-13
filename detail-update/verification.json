@@ -1,0 +1,27 @@
+{
+  "saved_blend_reopened": true,
+  "unchanged_meshes_verified": 395,
+  "closed_new_meshes": 97,
+  "door_wall_clearance_samples": 28,
+  "survey_opening_width_m": 2.3400299961472553,
+  "door_head_m": 2.5,
+  "side_glass_panels": 2,
+  "centre_pleated_screen": true,
+  "removed_brick_guard_count": 2,
+  "railings": [
+    {
+      "name": "Terrace 1 side",
+      "vertical_bars": 27,
+      "posts": 4,
+      "top_z_m": 0.949999988079071
+    },
+    {
+      "name": "Outer side",
+      "vertical_bars": 30,
+      "posts": 4,
+      "top_z_m": 0.949999988079071
+    }
+  ],
+  "roof_and_other_openings_unchanged": true,
+  "scene_count": 13
+}

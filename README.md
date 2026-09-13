@@ -1,6 +1,24 @@
 # Saguramo house model
 
-## Latest: drone roof and brick finish
+## Latest: Childroom terrace door and basement railings
+
+Open **Saguramo_House_Roof_Updated.blend**. The Childroom opening onto Terrace 1 now matches the supplied close-up: full-height glazing on both sides, a central pleated insect screen, black framing and a low threshold. Its surveyed width and position are retained; the 2.50m head height and panel proportions are photo estimates.
+
+Both low brick guards beside the basement stairs are replaced with black metal railings: square posts, horizontal top/bottom rails and straight vertical bars. The original guard runs and 0.95m height are retained; profiles and spacing are estimated from the reference. Existing stair treads, room layouts, roof slopes and other openings are unchanged.
+
+Scenes **12 Childroom terrace door** and **13 Basement railings** show the changes. Previews, source close-ups, geometry specification and verification are in `detail-update/`. The previous roof-only model remains in Git history.
+
+To apply these details after rebuilding the roof model with the commands below:
+
+```bash
+.venv/bin/python detail-update/prepare_details.py
+blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python detail-update/update_details.py
+blender --background Saguramo_House_Roof_Updated.blend --python detail-update/verify_details.py
+```
+
+The detail builder expects the roof-only stage as input. The current full model is checked with `detail-update/verify_details.py`; the older roof validator applies before the detail stage.
+
+## Drone roof and brick finish
 
 Open **Saguramo_House_Roof_Updated.blend**. This includes the previous window corrections plus the roof reconstructed from the nine drone photographs. All newer roof sections remain black; the older hip roofs and raised gable are reddish. Scenes 09–11 show the roof from above and from both sides. The file opens with material preview enabled so the brick texture is visible.
 
