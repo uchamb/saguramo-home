@@ -1,0 +1,21 @@
+{
+  "saved_model_reopened": true,
+  "unrelated_meshes_preserved": 410,
+  "floor_meshes_unchanged": 5,
+  "full_height_columns_added": 2,
+  "column_distance_from_bathroom2_m": 1,
+  "column_tops_fit_roof_soffit": true,
+  "terrace_railing_connected_to_existing_column": true,
+  "closed_new_railing_meshes": 81,
+  "procedural_square_tile_material_verified": true,
+  "tile_size_estimate_m": 0.5,
+  "tile_targets": [
+    "MAIN 00 | veranda | 44.98 m2",
+    "Veranda entry step 1",
+    "Veranda entry step 2",
+    "Veranda entry step 3",
+    "Veranda entry step 4"
+  ],
+  "childroom_door_roof_and_stairs_preserved": true,
+  "scene_count": 14
+}

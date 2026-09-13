@@ -1,0 +1,13 @@
+{
+  "saved_model_reopened": true,
+  "east_full_height_column_count": 2,
+  "west_full_height_column_count": 2,
+  "east_railing_unchanged": true,
+  "west_end_column_fits_roof_soffit": true,
+  "west_rails_meet_column_face": true,
+  "both_terraces_share_identical_material": true,
+  "floor_meshes_unchanged": 6,
+  "unrelated_meshes_unchanged": 486,
+  "changed_and_new_column_rail_meshes_closed": 4,
+  "scene_count": 14
+}

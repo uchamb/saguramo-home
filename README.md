@@ -1,6 +1,41 @@
 # Saguramo house model
 
-## Latest: drone roof and brick finish
+## Latest: two columns per railing and matching terrace tiles
+
+The Terrace 1 side of the basement railing now terminates at the existing black canopy column. Each railing has one additional 85mm square roof-height column, with its centre **1.00m from Bathroom 2's exterior wall** along the railing. The west railing also has a full-height end column replacing its former short end post, so **both east and west railings now have two full-height columns**. Their tops fit the existing sloping soffit. The east railing remains as previously approved; stair access remains open.
+
+Terrace 1, Terrace 2 and the Terrace 1 entry steps share the same square-tile material with mottled grey, taupe and brown colouring, pale weathered patches and thin grout joints, based on the owner's tile photograph. **500mm tile size is an estimate**, not a supplied measurement. This is a self-contained procedural Blender material. Scene **13 Basement railings** shows the corrected supports and scene **14 Terrace 1 tiles** shows the finish; current previews are in `terrace-update/`.
+
+Apply this final stage after the door/railing stage below:
+
+```bash
+blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python terrace-update/update_terrace.py
+blender --background Saguramo_House_Roof_Updated.blend --python terrace-update/verify_terrace.py
+blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python terrace-update/match_west_columns.py
+blender --background Saguramo_House_Roof_Updated.blend --python terrace-update/verify_final_terraces.py
+```
+
+Final saved-file validation confirms two full-height columns per railing, the west end column’s roof and railing contacts, identical materials on both terraces, unchanged floor geometry, and preservation of the east railing and unrelated meshes. See `terrace-update/final_verification.json`. Earlier validators apply to their respective build stages.
+
+## Childroom terrace door and basement railings
+
+Open **Saguramo_House_Roof_Updated.blend**. The Childroom opening onto Terrace 1 now matches the supplied close-up: full-height glazing on both sides, a central pleated insect screen, black framing and a low threshold. Its surveyed width and position are retained; the 2.50m head height and panel proportions are photo estimates.
+
+Both low brick guards beside the basement stairs are replaced with black metal railings: square posts, horizontal top/bottom rails and straight vertical bars. The original guard runs and 0.95m height are retained; profiles and spacing are estimated from the reference. Existing stair treads, room layouts, roof slopes and other openings are unchanged.
+
+Scenes **12 Childroom terrace door** and **13 Basement railings** show the changes. Previews, source close-ups, geometry specification and verification are in `detail-update/`. The previous roof-only model remains in Git history.
+
+To apply these details after rebuilding the roof model with the commands below:
+
+```bash
+.venv/bin/python detail-update/prepare_details.py
+blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python detail-update/update_details.py
+blender --background Saguramo_House_Roof_Updated.blend --python detail-update/verify_details.py
+```
+
+The detail builder expects the roof-only stage as input. Use `detail-update/verify_details.py` at this build stage, before the final terrace refinements; the older roof validator applies before the detail stage.
+
+## Drone roof and brick finish
 
 Open **Saguramo_House_Roof_Updated.blend**. This includes the previous window corrections plus the roof reconstructed from the nine drone photographs. All newer roof sections remain black; the older hip roofs and raised gable are reddish. Scenes 09–11 show the roof from above and from both sides. The file opens with material preview enabled so the brick texture is visible.
 

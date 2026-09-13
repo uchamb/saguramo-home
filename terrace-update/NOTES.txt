@@ -1,0 +1,13 @@
+TERRACE 1 RAILING SUPPORTS AND TILE FINISH
+
+Terrace-side guard is now aligned with the existing canopy column at
+(-6.25, 8.70) and its rails terminate at that column's face.
+One 85mm square full-height black column was added to each stair railing.
+Each column centre is exactly 1.00m along the rail from Bathroom 2's external
+wall, and its top follows the existing roof soffit. Stair access remains open.
+
+Terrace 1 and its entry steps use procedural square tiles in mottled grey,
+taupe and brown, with worn pale patches and thin grout joints, based on the
+owner photograph. Tile size is assumed 500mm; no measured size was supplied.
+No external texture dependency. Floor geometry and all unrelated meshes are
+preserved. Scene 14 shows the tiles; scene 13 shows the amended railings.
