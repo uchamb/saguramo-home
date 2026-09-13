@@ -1,0 +1,17 @@
+SECOND-FLOOR CONCEPT — FLAT WOODEN FLOOR ONLY
+
+All former red roof panels, ribs, ridges, hips, raised gable and their perimeter
+trim are removed in this concept. Their combined plan footprint becomes a flat
+wooden floor with its top exactly 3.00m above the main floor, at wall-top level.
+Warm oak board finish is procedural. The 60mm visual floor thickness extends
+downwards from 3m; board sizes and floor build-up are illustrative.
+
+Both black roof sections, their slopes, corrugations, supports, soffits and
+associated trim are retained. Old ceiling portions above the new floor are
+removed only within its footprint; the ceiling beneath the black roof remains.
+Wall XY, openings and lower vertices are unchanged; hidden cap vertices
+under the floor are recessed 1mm solely to avoid coplanar render artifacts.
+No mansard, upper-storey walls, pitched roof, access stair or furniture is added.
+
+The original Saguramo_House_Roof_Updated.blend remains unchanged.
+Open Saguramo_House_Second_Floor_Concept.blend; scenes 15–17 show this concept.

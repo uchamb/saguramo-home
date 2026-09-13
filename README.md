@@ -1,6 +1,22 @@
 # Saguramo house model
 
-## Latest: two columns per railing and matching terrace tiles
+## Second-floor concept
+
+Open **Saguramo_House_Second_Floor_Concept.blend** for the current concept on `feat/second-floor`. The red roof is replaced by one continuous, flat, timber-finished floor with its top at **3.00m**. The floor follows the former red roof's 177.1064m² footprint, including its existing overhangs and corner section. Both black roofs retain their original geometry, slopes, corrugations, soffits and associated trim. **No mansard or upper-storey walls have been added.**
+
+The natural oak board finish is procedural. Floor thickness is an illustrative 60mm below the requested 3m surface; board sizes are illustrative. Superseded ceilings within this footprint are removed, while ceiling portions below the black roof remain. Hidden wall-top vertices have a 1mm render clearance below the floor; wall footprints, openings and all lower vertices are retained.
+
+The existing-house file **Saguramo_House_Roof_Updated.blend** remains unchanged. Scenes **15 Second floor concept**, **16 Second floor plan** and **17 Timber floor detail** show the new concept. Preview and validation files are in `second-floor/`.
+
+```bash
+.venv/bin/python second-floor/prepare_floor.py
+blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python second-floor/build_concept.py
+blender --background Saguramo_House_Second_Floor_Concept.blend --python second-floor/verify_concept.py
+```
+
+Verification reopens the concept, checks the 3.00m planar surface and closed floor solid, confirms removal of all red roof objects, checks the preserved black roof slopes and 409 unchanged meshes, and verifies the source house file remains byte-for-byte unchanged. Rebuilding this stage resets the concept to this initial flat-floor design.
+
+## Existing house: two columns per railing and matching terrace tiles
 
 The Terrace 1 side of the basement railing now terminates at the existing black canopy column. Each railing has one additional 85mm square roof-height column, with its centre **1.00m from Bathroom 2's exterior wall** along the railing. The west railing also has a full-height end column replacing its former short end post, so **both east and west railings now have two full-height columns**. Their tops fit the existing sloping soffit. The east railing remains as previously approved; stair access remains open.
 

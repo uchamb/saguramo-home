@@ -1,0 +1,19 @@
+{
+  "concept_file_reopened": true,
+  "original_house_file_unchanged": true,
+  "flat_floor_top_m": 3.0,
+  "floor_area_m2": 177.10638809204102,
+  "closed_floor_solid": true,
+  "red_roof_geometry_removed": true,
+  "black_roof_and_retained_trim_meshes_identical": 17,
+  "black_roof_slopes_percent": {
+    "Dark west roof and annex": 6.00001,
+    "Dark south veranda canopy": 2.0
+  },
+  "unrelated_meshes_identical": 409,
+  "wall_xy_and_openings_preserved": true,
+  "hidden_wall_top_clearance_m": 0.001,
+  "wood_material_verified": true,
+  "mansard_added": false,
+  "scene_count": 17
+}
