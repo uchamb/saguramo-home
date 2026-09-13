@@ -37,7 +37,6 @@
     "Cadastral boundary.010": "519a648981e9e468f0579488213a63c37b9066e865240a14c21c561a7742bc60",
     "Ceiling | owner height 3m; west slope 6pct.003": "a6c5b69d90b964e95478dc304a569e6d8eb130e09c6b2cd009b15d6b960be8f1",
     "Ceiling | retained below black roof | room 44": "23b0c260fec7f7fff03f2b856fc1605b6bef30dc87bb37ef67e1ab29d78d5239",
-    "CONCEPT | raised second-floor timber deck | 300mm thick": "3e8dbba93dca8ed5cf26501548f7ca4646afd70af97fa03b15bf884db3f277c2",
     "DETAIL | Basement railing | Outer side | bay 0 bottom rail": "f448e0881f4c5a02e4072ca1d75db80547398d55de0c6492f7bafcf3e32cf8ce",
     "DETAIL | Basement railing | Outer side | bay 0 top handrail": "3b0d1694490f7e3a330d2c8a55674d1f1c4fbe040341eb7b2f69ac6cfa884ffd",
     "DETAIL | Basement railing | Outer side | bay 1 bottom rail": "de253b97243d9ef2f32135e2d52eab2d26d71aa8407d7e6f92ad1a4266915657",
@@ -439,7 +438,10 @@
     "Veranda steel post | photo estimate.004": "bc21eae8622601317054070eb8afad58e6398025159d63db4a27a7d8fa20f1fe"
   },
   "existing_house_sha256": "4672e53097ced0fe649cf894045389685df5cc54a170d7f46a8cd227c71587a8",
+  "replaced_flat_deck_signature": "3e8dbba93dca8ed5cf26501548f7ca4646afd70af97fa03b15bf884db3f277c2",
+  "expanded_deck_area_m2": 194.418,
   "closed_solids": [
+    "CONCEPT | raised second-floor timber deck | 300mm thick",
     "MANSARD | Main south slope with dormer opening",
     "MANSARD | seams | Main south slope with dormer opening",
     "MANSARD | Main north slope",
@@ -483,42 +485,20 @@
       ],
       "end": [
         -6.7749999999999995,
-        -3.085
+        4.575
       ],
-      "length_m": 4.789999940111642
+      "length_m": 12.450000098048443
     },
     {
       "start": [
         -6.7749999999999995,
-        -3.085
-      ],
-      "end": [
-        -4.515,
-        -3.085
-      ],
-      "length_m": 2.2600002579140304
-    },
-    {
-      "start": [
-        -4.515,
-        -3.085
-      ],
-      "end": [
-        -4.515,
-        4.575
-      ],
-      "length_m": 7.659999878885851
-    },
-    {
-      "start": [
-        -4.515,
         4.575
       ],
       "end": [
-        -0.18,
+        8.505,
         4.575
       ],
-      "length_m": 4.33499998662436
+      "length_m": 15.280000787705006
     },
     {
       "start": [
@@ -543,7 +523,7 @@
       "length_m": 3.945000181016809
     }
   ],
-  "railing_posts": 27,
+  "railing_posts": 32,
   "ridge_top_m": 8.250639915466309,
   "floor_top_m": 3.2506399154663086,
   "views": [

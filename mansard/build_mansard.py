@@ -23,6 +23,20 @@ wood=mat('Mansard | warm timber cladding',(.32,.17,.075),.52)
 n=wood.node_tree.nodes;l=wood.node_tree.links;geo=n.new('ShaderNodeTexCoord');scale=n.new('ShaderNodeVectorMath');scale.operation='MULTIPLY';scale.inputs[1].default_value=(35,35,2);l.new(geo.outputs['Generated'],scale.inputs[0]);noise=n.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=3;noise.inputs['Detail'].default_value=3;l.new(scale.outputs[0],noise.inputs['Vector']);r=n.new('ShaderNodeValToRGB');r.color_ramp.elements[0].color=(.14,.061,.022,1);r.color_ramp.elements[1].color=(.44,.27,.13,1);l.new(noise.outputs['Fac'],r.inputs[0]);l.new(r.outputs[0],n.get('Principled BSDF').inputs['Base Color'])
 glass=mat('Mansard | clear terrace glazing',(.77,.86,.88),.08);bs=glass.node_tree.nodes.get('Principled BSDF');bs.inputs['Transmission Weight'].default_value=1;bs.inputs['IOR'].default_value=1.45
 solid_names=[]
+# Replace only the concept deck to follow the new yellow outline. Its top,
+# thickness, finish and every original-house mesh remain unchanged.
+floor_name='CONCEPT | raised second-floor timber deck | 300mm thick'
+old_floor_signature=original.pop(floor_name)
+old_floor=bpy.data.objects[floor_name];floor_properties=dict(old_floor.items())
+bpy.data.objects.remove(old_floor,do_unlink=True)
+deck=prism(floor_name,G['deck_geometry'],F-G['deck_thickness_m'],F,bpy.data.materials['Second-floor concept | natural oak boards'],'05')
+deck.data.materials.append(plaster)
+for face in deck.data.polygons:
+ if face.normal.z<-.5:face.material_index=1
+for key,value in floor_properties.items():deck[key]=value
+deck['area_m2']=G['floor_area_m2'];deck['footprint_basis']='Owner yellow outline: straight south edge aligned with Entrance-side deck boundary'
+deck['stage']='Expanded south terrace with centered wider mansard and 1.5m end terraces'
+solid_names.append(deck.name)
 def solid(name,verts,faces,material,col):
  o=meshobj(name,verts,faces,material,col);bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free();solid_names.append(o.name);return o
 def extrusion(name,poly,axis,lo,hi,material,col):
@@ -128,16 +142,18 @@ The visible ridge crest is 5.000m above the wooden floor ({peak:.5f}m absolute).
 The floor remains 300mm thick at {F:.5f}m, 100mm above the existing black roof.
 A timber-clad room with clear sidelights and a 1m terrace door is enclosed
 within the south dormer. It opens directly onto the upper wooden terrace.
-The north eave and west gable now meet the wooden deck edges. The east gable
-has a 1m terrace setback. Matching glazed doors are added to east and west.
-North railings and west railings beside the roof are removed; west terrace
-railings remain. The east guard opens for a 1.10m wide quarter-turn staircase
+The roof leaves 1.5m terraces on both east and west ends. Its south edge is
+widened to local X=-1.60m; the north eave remains at X=8.58m. The ridge and
+both end glass doors share the centered X=3.49m axis. The yellow outline
+extends the deck south to a straight X=-6.85m edge, adding 17.3116m2.
+Black railings guard the expanded south edge and the whole west terrace.
+The north railing remains removed. The east guard opens for a 1.10m wide quarter-turn staircase
 from Terrace 2, with 19 equal rises and timber treads on a black steel frame.
-The approved south dormer geometry remains unchanged.
-Both original black roofs and every pre-existing mesh are unchanged.
+The south dormer follows the wider south slope, retaining its glazing style.
+Both original black roofs and all 436 other flat-stage house meshes are unchanged.
 Room width/depth, 2.20m door height, charcoal finish and railing profiles are
 concept choices based on the supplied images, not surveyed construction details.
-Roof footprint approx. 8.73 x 11.60m; room gross area {r['area_m2']:.2f}m2.
+Roof footprint approx. 10.18 x 9.60m; room gross area {r['area_m2']:.2f}m2.
 Scenes 18–22 show this stage; second-floor/ retains the historical flat stage.
 '''
 textblock=bpy.data.texts.get('SECOND FLOOR - current concept stage');textblock.clear();textblock.write(notes);(P/'NOTES.txt').write_text(notes)
@@ -148,6 +164,6 @@ for screen in bpy.data.screens:
    area.spaces.active.shading.type='MATERIAL';area.spaces.active.region_3d.view_rotation=bpy.data.objects['Camera mansard concept'].rotation_euler.to_quaternion();area.spaces.active.region_3d.view_location=(0,.3,3);area.spaces.active.region_3d.view_distance=33
 assert all(sig(bpy.data.objects[k])==v for k,v in original.items()),'Existing geometry changed'
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'Saguramo_House_Second_Floor_Concept.blend'))
-(P/'build_validation.json').write_text(json.dumps({'preserved_mesh_signatures':original,'existing_house_sha256':source_hash,'closed_solids':solid_names,'guard_segments':guard_segments,'railing_posts':len(post_positions),'ridge_top_m':peak,'floor_top_m':F,'views':[v[0] for v in views]},indent=2)+'\n')
+(P/'build_validation.json').write_text(json.dumps({'preserved_mesh_signatures':original,'existing_house_sha256':source_hash,'replaced_flat_deck_signature':old_floor_signature,'expanded_deck_area_m2':G['floor_area_m2'],'closed_solids':solid_names,'guard_segments':guard_segments,'railing_posts':len(post_positions),'ridge_top_m':peak,'floor_top_m':F,'views':[v[0] for v in views]},indent=2)+'\n')
 for title,*_ in views:bpy.ops.render.render(write_still=True,scene=title)
 print('MANSARD_BUILD_COMPLETE')
