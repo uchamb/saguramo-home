@@ -1,16 +1,22 @@
 # Saguramo house model
 
-## Second-floor concept: mansard and south terrace room
+## Second-floor concept: mansard, terrace doors and east staircase
 
-Open **Saguramo_House_Second_Floor_Concept.blend** on `feat/second-floor`. The roof follows the owner's marked red rectangle and blue ridge: two straight slopes form an upside-down V, with the highest ridge crest **5.00m above the wooden floor** (8.25064m above the main floor). The traced footprint is approximately **8.05 × 10.85m**.
+Open **Saguramo_House_Second_Floor_Concept.blend** on `feat/second-floor`. The roof follows the owner's marked red rectangle and blue ridge: two straight slopes form an upside-down V, with the highest ridge crest **5.00m above the wooden floor** (8.25064m above the main floor). The roof now reaches the wooden floor's **north and west edges**, with an **exactly 1m terrace strip on the east**. Its revised footprint is approximately **8.73 × 11.60m**; the blue ridge location is retained.
 
 A broad shed dormer on the **south slope (negative local X)** contains an enclosed room, inspired by the supplied structural reference. Its black-framed central glazed door opens directly onto the upper wooden terrace, with full-height fixed glazing on both sides. The main sloping roof has an actual cut-out around the dormer. Timber-clad cheeks, front piers, rear wall and a sloping ceiling enclose the room. Its approximately 18.22m² gross footprint, 1.00m door width, 2.20m door height, cladding and charcoal roof finish are concept choices.
 
-The uncovered wooden floor is the upper terrace, with **1.10m black vertical-bar railings around its outer exposed perimeter**. The floor remains 300mm thick, with its top at 3.25064m, exactly 100mm above the highest existing black-roof crest. Its 177.1064m² footprint is unchanged. Both original black roofs and all 437 meshes from the flat-floor stage remain unchanged. The existing-house reference **Saguramo_House_Roof_Updated.blend** is preserved byte for byte.
+Matching central glass doors with fixed sidelights are installed in both the **east and west gables**, with real openings in the walls. The east door faces the 1m terrace strip; the west door is at the deck edge beside the unchanged black roof.
 
-Scenes **18 Mansard concept**, **19 Mansard plan** and **20 South dormer and terrace** show the current stage. Renders, references, geometry and saved-file verification are in `mansard/`. Scenes 15–17 remain available; previews in `second-floor/` record the earlier flat-floor stage.
+A **1.10m-wide east staircase** follows the owner's green outline: a lower flight along Terrace 2, four quarter-turn winding treads, then a flight up to the east deck edge opposite the door. Its 19 equal rises are approximately 171mm. Black steel framing and vertical-bar guards support timber treads matching the deck. Width, tread count and profiles are concept dimensions chosen to fit the actual floor rise and terrace footprint. The stair mouth is open through the upper railing.
 
-![Mansard and south terrace room](mansard/concept.png)
+The uncovered wooden floor is the upper terrace. **North railings are removed**, and the **west railing is retained only beside the open terrace**, ending at the mansard. The remaining upper guards are 1.10m high. The floor remains 300mm thick, with its top at 3.25064m, exactly 100mm above the highest existing black-roof crest. Its 177.1064m² footprint is unchanged. Both original black roofs and all 437 meshes from the flat-floor stage remain unchanged. The existing-house reference **Saguramo_House_Roof_Updated.blend** is preserved byte for byte.
+
+Scenes **18 Mansard concept**, **19 Mansard plan**, **20 South dormer and terrace**, **21 East doors and staircase** and **22 West glass door** show the current stage. Renders, references, geometry and saved-file verification are in `mansard/`. Scenes 15–17 remain available; previews in `second-floor/` record the earlier flat-floor stage.
+
+![Mansard and terrace access](mansard/concept.png)
+
+![East staircase and glass door](mansard/east-stair.png)
 
 Rebuild in this order; the first builder resets the concept to the historical flat-floor stage before the mansard is reapplied:
 
@@ -23,7 +29,7 @@ blender --background Saguramo_House_Second_Floor_Concept.blend --threads 8 --pyt
 blender --background Saguramo_House_Second_Floor_Concept.blend --python mansard/verify_mansard.py
 ```
 
-Final verification reopens the saved model and checks the exact ridge height, 16 closed roof/room solids, actual dormer roof opening, doorway clearance, railing height and preservation of every baseline mesh. The earlier flat-stage validator checks deck thickness, clearance, original black-roof slopes and removal of red roof geometry before the new roof is added.
+Final verification reopens the saved model and checks the exact ridge height, roof alignment with both deck edges, the 1m east setback, 34 closed roof/room/stair solids, all three door openings, railing removals and the clear stair mouth. It measures every tread and final rise into the deck, checks the first tread and turning support sit on Terrace 2, and verifies preservation of all 437 baseline house/deck meshes and 49 approved south-dormer meshes. The earlier flat-stage validator checks deck thickness, clearance, original black-roof slopes and removal of red roof geometry before the new roof is added.
 
 ## Existing house: two columns per railing and matching terrace tiles
 

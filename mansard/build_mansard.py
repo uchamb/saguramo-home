@@ -14,7 +14,7 @@ def sig(o):return hashlib.sha256(repr(([tuple(v.co) for v in o.data.vertices],[t
 original={o.name:sig(o) for o in bpy.data.objects if o.type=='MESH'}
 source_hash=hashlib.sha256((OUT/'Saguramo_House_Roof_Updated.blend').read_bytes()).hexdigest()
 base=bpy.data.scenes['01 Exterior']
-for name in ['10 Mansard roof','11 Upper terrace railings','12 Mansard south room']:
+for name in ['10 Mansard roof','11 Upper terrace railings','12 Mansard south room','13 East access stair']:
  c=bpy.data.collections.new(name);COL[name[:2]]=c
  for sc in list(bpy.data.scenes):sc.collection.children.link(c)
 plaster=bpy.data.materials['Warm interior plaster'];black=bpy.data.materials['Detail | black door and railing finish']
@@ -47,8 +47,22 @@ south,north,dormer=[s['plane'] for s in G['roof_planes']]
 # Folded cap closes the ridge; its visible crest is exactly five metres above deck.
 profile=[(xr-.12,zplane(south,xr-.12,0)+.025),(xr,peak),(xr+.12,zplane(north,xr+.12,0)+.025),(xr+.12,zplane(north,xr+.12,0)+.012),(xr,peak-.013),(xr-.12,zplane(south,xr-.12,0)+.012)]
 extrusion('MANSARD | ridge cap | 5m above wooden floor',profile,1,y0,y1,roof,'10')
+def gable_door(label,y,outward):
+ prefix='MANSARD '+label.upper()+' | '
+ c=G['gable_doors']['center_x'];a,b=c-1.6,c+1.6;d0,d1=c-.5,c+.5
+ for x in [a,d0,d1,b]:box(prefix+'black glazing jamb',(x,y+outward*.012,F+1.10),(.045,.085,2.20),black,'12')
+ for z in [F+.025,F+2.175]:box(prefix+'glazing horizontal frame',(c,y+outward*.012,z),(3.20,.085,.05),black,'12')
+ for lo,hi,name in [(a,d0,'left fixed pane'),(d0,d1,'terrace door glass'),(d1,b,'right fixed pane')]:
+  o=box(prefix+name,((lo+hi)/2,y+outward*.015,F+1.10),(hi-lo-.05,.014,2.10),glass,'12');o['opening_side']=label;o['matching_reference']='Approved south dormer glazed door'
+ for x in [d0+.043,d1-.043]:box(prefix+'door leaf stile',(x,y+outward*.026,F+1.10),(.025,.05,2.10),black,'12')
+ box(prefix+'terrace door pull',(d1-.105,y+outward*.095,F+1.08),(.025,.035,.28),black,'12')
+ for z in [F+.96,F+1.20]:box(prefix+'handle stand-off',(d1-.105,y+outward*.060,z),(.022,.08,.022),black,'12')
 for y,label in [(y0,'east'),(y1,'west')]:
- extrusion('MANSARD | '+label+' gable enclosure',[(x0,F),(x1,F),(xr,G['ridge_sheet_m']-.06)],1,y+.025 if y==y0 else y-.145,y+.145 if y==y0 else y-.025,wood,'12')
+ lo,hi=(y+.025,y+.145) if label=='east' else (y-.145,y-.025)
+ o=prism('MANSARD | '+label+' gable enclosure',G['gable_geometry'],lo,hi,wood,'12');solid_names.append(o.name)
+ for v in o.data.vertices:v.co=(v.co.x,v.co.z,v.co.y)
+ bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free();o.data.update()
+ gable_door(label,y,-1 if label=='east' else 1)
  # End flashing follows both roof slopes without adding height at the ridge.
  for a,b,p in [(x0,xr,south),(xr,x1,north)]:
   poly=[(a,zplane(p,a,y)-.09),(b,zplane(p,b,y)-.09),(b,zplane(p,b,y)),(a,zplane(p,a,y))]
@@ -80,8 +94,8 @@ for a,b in [(dy0+.08,gl0-.08),(gl1+.08,dy1-.08)]:
  while y<b:
   box('MANSARD ROOM | timber joint',(front-.001,y,(F+front_top)/2),(.002,.005,front_top-F),black,'12');y+=.14
 # Continuous guards on the wooden deck exterior; none blocks the room doorway.
-ring=G['railing_ring'];height=G['railing_height_m'];post_positions={};guard_segments=[]
-for idx,(a,b) in enumerate(zip(ring,ring[1:])):
+height=G['railing_height_m'];post_positions={};guard_segments=[]
+for idx,(a,b) in enumerate(G['railing_segments']):
  va,vb=Vector(a),Vector(b);length=(vb-va).length;nspan=math.ceil(length/1.5)
  for i in range(nspan+1):
   p=va+(vb-va)*(i/nspan);post_positions[(round(p.x,5),round(p.y,5))]=p
@@ -92,11 +106,12 @@ for idx,(a,b) in enumerate(zip(ring,ring[1:])):
  guard_segments.append({'start':a,'end':b,'length_m':length})
 for p in post_positions.values():
  box('UPPER TERRACE | square post',(p.x,p.y,F+height/2),(.055,.055,height),black,'11');box('UPPER TERRACE | base plate',(p.x,p.y,F+.007),(.11,.11,.014),black,'11')
+exec(compile((P/'add_east_stair.py').read_text(),str(P/'add_east_stair.py'),'exec'))
 # New upper geometry is excluded from the ground-floor and basement cutaway scenes.
 for sc in bpy.data.scenes:
  for lc in sc.view_layers[0].layer_collection.children:
-  if lc.name[:2] in ['10','11','12'] and sc.name[:2] in ['02','03','05']:lc.exclude=True
-views=[('18 Mansard concept','concept',(-24,-27,24),(0,.3,3),32),('19 Mansard plan','plan',(.6,1.6,40),(.6,1.6,0),24),('20 South dormer and terrace','south-dormer',(-13,-13,11),(.8,-1.7,4.9),18)]
+  if lc.name[:2] in ['10','11','12','13'] and sc.name[:2] in ['02','03','05']:lc.exclude=True
+views=[('18 Mansard concept','concept',(-24,-27,24),(0,.3,3),32),('19 Mansard plan','plan',(.6,1.6,40),(.6,1.6,0),24),('20 South dormer and terrace','south-dormer',(-13,-13,11),(.8,-1.7,4.9),18),('21 East doors and staircase','east-stair',(15,-24,16),(2,-6.4,3.5),22),('22 West glass door','west-door',(-13,21,15),(1.5,3,4.2),24)]
 for title,key,pos,target,scale in views:
  sc=bpy.data.scenes.new(title)
  for c in base.collection.children:sc.collection.children.link(c)
@@ -113,12 +128,17 @@ The visible ridge crest is 5.000m above the wooden floor ({peak:.5f}m absolute).
 The floor remains 300mm thick at {F:.5f}m, 100mm above the existing black roof.
 A timber-clad room with clear sidelights and a 1m terrace door is enclosed
 within the south dormer. It opens directly onto the upper wooden terrace.
-Black vertical-bar guards, 1.10m high, follow all exposed deck perimeter edges.
+The north eave and west gable now meet the wooden deck edges. The east gable
+has a 1m terrace setback. Matching glazed doors are added to east and west.
+North railings and west railings beside the roof are removed; west terrace
+railings remain. The east guard opens for a 1.10m wide quarter-turn staircase
+from Terrace 2, with 19 equal rises and timber treads on a black steel frame.
+The approved south dormer geometry remains unchanged.
 Both original black roofs and every pre-existing mesh are unchanged.
 Room width/depth, 2.20m door height, charcoal finish and railing profiles are
 concept choices based on the supplied images, not surveyed construction details.
-Roof footprint approx. 8.05 x 10.85m; room gross area {r['area_m2']:.2f}m2.
-Scenes 18–20 show this stage; second-floor/ retains the historical flat stage.
+Roof footprint approx. 8.73 x 11.60m; room gross area {r['area_m2']:.2f}m2.
+Scenes 18–22 show this stage; second-floor/ retains the historical flat stage.
 '''
 textblock=bpy.data.texts.get('SECOND FLOOR - current concept stage');textblock.clear();textblock.write(notes);(P/'NOTES.txt').write_text(notes)
 bpy.context.window.scene=bpy.data.scenes['18 Mansard concept'];bpy.context.view_layer.update();bpy.ops.object.select_all(action='DESELECT')

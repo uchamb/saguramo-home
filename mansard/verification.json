@@ -4,21 +4,38 @@
   "ridge_absolute_m": 8.250639915466309,
   "floor_level_m": 3.2506399154663086,
   "preserved_existing_meshes": 437,
+  "approved_south_room_meshes_unchanged": 49,
   "original_house_file_unchanged": true,
   "black_roofs_and_deck_unchanged": true,
-  "closed_roof_room_solids": 16,
+  "closed_roof_room_stair_solids": 34,
   "south_dormer_roof_cutout_verified": true,
   "doorway_clear_of_walls": true,
+  "east_and_west_glazed_door_openings_verified": true,
+  "roof_meets_north_and_west_deck_edges": true,
+  "east_terrace_setback_m": 1.0,
+  "north_guards_removed": true,
+  "west_guards_removed_beside_roof_and_retained_on_terrace": true,
+  "east_stair_guard_opening_clear": true,
   "door_nominal_width_m": 1,
   "door_height_m": 2.2,
   "south_room_gross_area_m2": 18.221056000000004,
-  "uncovered_upper_terrace_area_m2": 89.7639,
+  "uncovered_upper_terrace_area_m2": 75.83840000000001,
   "railing_height_m": 1.1000003814697266,
-  "guarded_deck_perimeter_m": 55.46000158707992,
-  "railing_posts": 41,
+  "guarded_deck_perimeter_m": 33.10499985716198,
+  "railing_posts": 27,
+  "east_stair": {
+    "riser_count": 19,
+    "riser_m": 0.17108631134033203,
+    "width_m": 1.1,
+    "winder_treads": 4,
+    "first_tread_and_turn_support_on_terrace_2": true,
+    "top_tread_connects_to_upper_deck": true
+  },
   "preview_scenes": [
     "18 Mansard concept",
     "19 Mansard plan",
-    "20 South dormer and terrace"
+    "20 South dormer and terrace",
+    "21 East doors and staircase",
+    "22 West glass door"
   ]
 }

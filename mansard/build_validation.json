@@ -455,7 +455,25 @@
     "MANSARD | west barge flashing.001",
     "MANSARD ROOM | east cheek",
     "MANSARD ROOM | west cheek",
-    "MANSARD ROOM | ceiling"
+    "MANSARD ROOM | ceiling",
+    "EAST STAIR | tread 01",
+    "EAST STAIR | tread 02",
+    "EAST STAIR | tread 03",
+    "EAST STAIR | tread 04",
+    "EAST STAIR | tread 05",
+    "EAST STAIR | tread 06",
+    "EAST STAIR | tread 07",
+    "EAST STAIR | tread 08",
+    "EAST STAIR | tread 09",
+    "EAST STAIR | tread 10",
+    "EAST STAIR | tread 11",
+    "EAST STAIR | tread 12",
+    "EAST STAIR | tread 13",
+    "EAST STAIR | tread 14",
+    "EAST STAIR | tread 15",
+    "EAST STAIR | tread 16",
+    "EAST STAIR | tread 17",
+    "EAST STAIR | tread 18"
   ],
   "guard_segments": [
     {
@@ -497,40 +515,42 @@
         4.575
       ],
       "end": [
-        8.505,
+        -0.18,
         4.575
       ],
-      "length_m": 13.020000624414948
+      "length_m": 4.33499998662436
     },
     {
       "start": [
-        8.505,
-        4.575
-      ],
-      "end": [
-        8.505,
-        -7.875
-      ],
-      "length_m": 12.450000098048443
-    },
-    {
-      "start": [
-        8.505,
-        -7.875
-      ],
-      "end": [
         -6.7749999999999995,
         -7.875
       ],
-      "length_m": 15.280000787705006
+      "end": [
+        3.3400000000000003,
+        -7.875
+      ],
+      "length_m": 10.114999612609283
+    },
+    {
+      "start": [
+        4.56,
+        -7.875
+      ],
+      "end": [
+        8.505,
+        -7.875
+      ],
+      "length_m": 3.945000181016809
     }
   ],
-  "railing_posts": 41,
+  "railing_posts": 27,
   "ridge_top_m": 8.250639915466309,
   "floor_top_m": 3.2506399154663086,
   "views": [
     "18 Mansard concept",
     "19 Mansard plan",
-    "20 South dormer and terrace"
+    "20 South dormer and terrace",
+    "21 East doors and staircase",
+    "22 West glass door"
   ]
 }
