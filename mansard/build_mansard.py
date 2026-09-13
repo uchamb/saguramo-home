@@ -104,6 +104,7 @@ for title,key,pos,target,scale in views:
  if key=='plan':sc.camera.rotation_euler=(0,0,0)
  sc.world=base.world;sc.unit_settings.system='METRIC';sc.render.engine='CYCLES';sc.cycles.samples=32;sc.cycles.use_denoising=True;sc.render.resolution_x=1700;sc.render.resolution_y=1300;sc.render.resolution_percentage=100;sc.render.image_settings.file_format='PNG';sc.view_settings.view_transform='AgX'
  for lc in sc.view_layers[0].layer_collection.children:lc.exclude=lc.name[:2]=='08'
+ if key=='plan':sc.render.resolution_x=1300;sc.render.resolution_y=1700;sc.camera.data.ortho_scale=28
  sc.render.filepath=str(P/(key+'.png'))
 notes=f'''MANSARD CONCEPT — OWNER-MARKED ROOF AND SOUTH TERRACE ROOM
 Roof plan follows the red rectangle; ridge follows the blue line.
