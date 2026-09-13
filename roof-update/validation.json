@@ -1,0 +1,19 @@
+{
+  "preserved_non_roof_meshes": 346,
+  "roof_surface_count": 11,
+  "corrugation_ribs": 514,
+  "black_slopes": {
+    "south_fall_m_per_m": 0.02,
+    "west_fall_m_per_m": 0.06,
+    "common_high_edge_z_m": 3.125,
+    "wall_height_high_m": 3.0,
+    "roof_build_up_m": 0.125
+  },
+  "main_eave_m": 3.125,
+  "main_ridge_m": 4.625,
+  "finish": "Keep later-added dark sections black; make every older roof reddish",
+  "all_window_geometry_unchanged": true,
+  "wall_height_m": 3.0,
+  "wall_height_report": "wall_height_validation.json",
+  "brick_material_updated": true
+}

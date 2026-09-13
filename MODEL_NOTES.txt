@@ -1,0 +1,26 @@
+SAGURAMO HOUSE - SURVEY-BASED MODEL
+
+Scenes: 01 Exterior; 02 Roofless interior; 03 Basement inspection;
+04 Survey site; 05 Measured floor plan. Use the Scene selector at the top.
+Metric units: 1 Blender unit = 1 metre. Main finished floor Z = 0.
+
+SOURCE: room, wall, opening, terrace and basement polygons from the supplied
+shp sartuli and shp sardafi unit_polygon files. Parcel and easement from shp.
+Ceiling heights: 2.90 m main, 2.52 m basement. Floor plans checked visually
+against pages 2 and 4 of the measured PDF. Geometry is survey XY without
+simplifying room outlines. Survey record IDs are stored on source meshes.
+
+ASSUMPTIONS: main structural slab 0.22 m; basement floor Z=-2.74 m;
+flat surrounding grade Z=-0.74 m; roof shape, pitches, overhangs and buildup;
+stair enclosure height 0.95m; warm plaster on inferred interior wall faces;
+window sill/head heights (usually 0.85/2.20m), door heads 2.20m;
+frame profiles, glazing divisions, open door swings, posts and stair rises.
+Brick, wood soffit and dark metal appearance estimated from shp/001-003.jpg.
+Room uses are not assigned. Interiors are unfurnished. No structural design.
+Photos and survey date from February/March 2025; later alterations unknown.
+
+Roofs are isolated in collection 05 and removable for editing.
+Site is flat because supplied survey has no elevation field. Terrain in the
+exterior scene hides underground geometry; use Basement inspection to view it.
+
+Coordinate metadata and reproducible source scripts accompany this file.

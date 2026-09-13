@@ -1,0 +1,24 @@
+{
+  "saved_roof_file_reopened": true,
+  "non_roof_meshes_identical_to_window_corrected_model": 303,
+  "owner_wall_height_solids_verified": 34,
+  "ceiling_heights_verified": 9,
+  "changed_wall_footprint_bounds_verified": true,
+  "all_opening_meshes_identical": true,
+  "closed_roof_solids": 11,
+  "black_roof_slope_measurements": {
+    "Dark south veranda canopy": {
+      "dz_dx": 0.019999980926513672,
+      "dz_dy": 0.0,
+      "slope_percent": 1.9999980926513672
+    },
+    "Dark west roof and annex": {
+      "dz_dx": 0.0,
+      "dz_dy": -0.060000061988830566,
+      "slope_percent": 6.000006198883057
+    }
+  },
+  "roof_finishes_verified": true,
+  "brick_texture_nodes_verified": true,
+  "scene_count": 11
+}

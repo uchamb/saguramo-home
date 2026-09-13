@@ -1,0 +1,27 @@
+ROOF AND BRICK UPDATE
+
+Based on Roof images/DJI_0659.JPG through DJI_0667.JPG. Roof footprint and
+ridge/valley arrangement traced from overhead DJI_0667 and checked in angled
+views. Main hip roof, connected small corner hip, raised solid triangular
+gable, lower west roof with annex projection, and long veranda canopy.
+
+User finish instruction: later-added roof sections stay BLACK. All remaining
+roof surfaces, including the photographed silver areas, are REDDISH.
+
+Brick shader updated to red-brown fired clay with individual brick variation,
+occasional dark bricks, warm mortar, recessed joints and fine surface relief.
+No external texture files required. Interior plaster retained.
+
+South black roof falls SOUTH at exactly 0.02m/m (2%, user supplied).
+West black roof falls WEST at exactly 0.06m/m (6%, user supplied).
+Main wall height is 3.00m per owner, including the high west wall beside
+the red roof. At the existing footprint, the 6% west slope gives about 2.73m
+at the main west wall and 2.63m at the annex west wall. Owner confirmed that
+6cm/m controls and the stated 2.55m low wall is approximate.
+Roof surface high edge is 3.125m (125mm estimated build-up); ridge is 4.625m.
+Red-roof pitch, overhangs and sheet profiles remain photo-based estimates.
+Main wall tops and ceiling elevations updated; survey XY, floor plans and
+photo-corrected opening elevations retained. Earlier files remain unchanged.
+
+Scenes 09-11 show the roof. The original facade and floor inspection scenes
+remain available. Hide collection 05 to inspect the rooms without the roof.

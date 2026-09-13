@@ -1,0 +1,24 @@
+{
+  "blender": "5.2.1 LTS",
+  "objects": 429,
+  "mesh_objects": 410,
+  "scenes": [
+    "01 Exterior",
+    "02 Roofless interior",
+    "03 Basement inspection",
+    "04 Survey site",
+    "05 Measured floor plan"
+  ],
+  "main_rooms_and_veranda_area_m2": 205.14417334503,
+  "terrace_area_m2": 52.9310548712,
+  "main_total_including_terrace_m2": 258.07522821623,
+  "basement_usable_area_m2": 52.827844989119995,
+  "ceiling_heights_m": [
+    2.9,
+    2.52
+  ],
+  "coordinate_origin_utm": [
+    479384.0,
+    4638555.0
+  ]
+}

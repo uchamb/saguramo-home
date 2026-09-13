@@ -1,0 +1,20 @@
+PHOTO UPDATE — EAST, SOUTH AND WEST WINDOWS
+
+Compared with IMG_2621.HEIC (east), IMG_2622.HEIC (south), IMG_2623.HEIC (west).
+Original Saguramo_House.blend is preserved. Room geometry, surveyed wall
+footprint and all other original meshes are unchanged except targeted openings.
+
+East: three-part full-height glazed doorway, two narrow full-height windows
+with top lights, and a lower-sill three-panel window.
+South: added the missing three-panel window to the small projecting room;
+corrected the recessed veranda window. Deeply obscured doors are unchanged.
+West: four-panel full-height glazing, plus the small high frosted window.
+
+Opening widths and positions follow the survey, except the missing south
+window: its 1.91m width and placement are estimated from the photograph.
+All opening sill/head heights are photo estimates, not measured elevations.
+Sill/head values and source photos are stored on corrected objects and in
+photo-update/facade_adjustments.json. Frames, hardware and sheers are visual
+approximations. North facade was not changed. Roof remains the earlier estimate.
+
+Use scenes 06, 07 and 08 to inspect the updated facades directly.
