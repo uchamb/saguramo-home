@@ -1,0 +1,242 @@
+{
+  "source_model": "Saguramo_House_Second_Floor_Concept.blend",
+  "source_model_sha256": "a22e37be752561295b4d2c6f04653a63a809ebe4aaa6c921ca4ffefc0d4aaa69",
+  "ground_datum_m": -0.7400000095367432,
+  "ground_datum_basis": "Top surface of the existing flat surveyed parcel mesh; first-floor slab is at model Z=0.",
+  "same_xy_and_lens_within_height_pairs": true,
+  "source_model_saved_or_modified": false,
+  "views": [
+    {
+      "side": "south-east",
+      "title": "Southeast corner",
+      "height_above_ground_m": 2,
+      "camera_location_m": [
+        -22.281782150268555,
+        -22.089916229248047,
+        1.2599999904632568
+      ],
+      "look_at_m": [
+        0.34563541412353516,
+        0.5375003814697266,
+        3.7553200721740723
+      ],
+      "lens_mm": 32.32530190380996,
+      "projection": "perspective",
+      "scene": "Render | Southeast corner | 2m above ground",
+      "file": "02m/south-east.png",
+      "resolution": [
+        1920,
+        1440
+      ],
+      "projected_house_bounds": [
+        0.145283505320549,
+        0.2750002443790436,
+        0.8984091281890869,
+        0.7260091304779053
+      ]
+    },
+    {
+      "side": "south-east",
+      "title": "Southeast corner",
+      "height_above_ground_m": 10,
+      "camera_location_m": [
+        -22.281782150268555,
+        -22.089916229248047,
+        9.260000228881836
+      ],
+      "look_at_m": [
+        0.34563541412353516,
+        0.5375003814697266,
+        3.7553200721740723
+      ],
+      "lens_mm": 32.32530190380996,
+      "projection": "perspective",
+      "scene": "Render | Southeast corner | 10m above ground",
+      "file": "10m/south-east.png",
+      "resolution": [
+        1920,
+        1440
+      ],
+      "projected_house_bounds": [
+        0.15869861841201782,
+        0.09499994665384293,
+        0.8810874223709106,
+        0.6736242771148682
+      ]
+    },
+    {
+      "side": "south-west",
+      "title": "Southwest corner",
+      "height_above_ground_m": 2,
+      "camera_location_m": [
+        -22.281782150268555,
+        23.1649169921875,
+        1.2599999904632568
+      ],
+      "look_at_m": [
+        0.34563541412353516,
+        0.5375003814697266,
+        3.7553200721740723
+      ],
+      "lens_mm": 33.66269496731433,
+      "projection": "perspective",
+      "scene": "Render | Southwest corner | 2m above ground",
+      "file": "02m/south-west.png",
+      "resolution": [
+        1920,
+        1440
+      ],
+      "projected_house_bounds": [
+        0.0851043313741684,
+        0.27073705196380615,
+        0.8775759935379028,
+        0.7002547383308411
+      ]
+    },
+    {
+      "side": "south-west",
+      "title": "Southwest corner",
+      "height_above_ground_m": 10,
+      "camera_location_m": [
+        -22.281782150268555,
+        23.1649169921875,
+        9.260000228881836
+      ],
+      "look_at_m": [
+        0.34563541412353516,
+        0.5375003814697266,
+        3.7553200721740723
+      ],
+      "lens_mm": 33.66269496731433,
+      "projection": "perspective",
+      "scene": "Render | Southwest corner | 10m above ground",
+      "file": "10m/south-west.png",
+      "resolution": [
+        1920,
+        1440
+      ],
+      "projected_house_bounds": [
+        0.0929984450340271,
+        0.09499996900558472,
+        0.8627004623413086,
+        0.6832352876663208
+      ]
+    },
+    {
+      "side": "south",
+      "title": "South side",
+      "height_above_ground_m": 2,
+      "camera_location_m": [
+        -31.65436553955078,
+        0.5375003814697266,
+        1.2599999904632568
+      ],
+      "look_at_m": [
+        0.34563541412353516,
+        0.5375003814697266,
+        3.7553200721740723
+      ],
+      "lens_mm": 32.996140409785525,
+      "projection": "perspective",
+      "scene": "Render | South side | 2m above ground",
+      "file": "02m/south.png",
+      "resolution": [
+        1920,
+        1440
+      ],
+      "projected_house_bounds": [
+        0.08893925696611404,
+        0.30024096369743347,
+        0.9249999523162842,
+        0.6840966939926147
+      ]
+    },
+    {
+      "side": "south",
+      "title": "South side",
+      "height_above_ground_m": 10,
+      "camera_location_m": [
+        -31.65436553955078,
+        0.5375003814697266,
+        9.260000228881836
+      ],
+      "look_at_m": [
+        0.34563541412353516,
+        0.5375003814697266,
+        3.7553200721740723
+      ],
+      "lens_mm": 32.996140409785525,
+      "projection": "perspective",
+      "scene": "Render | South side | 10m above ground",
+      "file": "10m/south.png",
+      "resolution": [
+        1920,
+        1440
+      ],
+      "projected_house_bounds": [
+        0.09945964813232422,
+        0.21516172587871552,
+        0.8996778130531311,
+        0.6777141094207764
+      ]
+    },
+    {
+      "side": "west",
+      "title": "West side",
+      "height_above_ground_m": 2,
+      "camera_location_m": [
+        0.34563541412353516,
+        32.537498474121094,
+        1.2599999904632568
+      ],
+      "look_at_m": [
+        0.34563541412353516,
+        0.5375003814697266,
+        3.7553200721740723
+      ],
+      "lens_mm": 39.577967741115415,
+      "projection": "perspective",
+      "scene": "Render | West side | 2m above ground",
+      "file": "02m/west.png",
+      "resolution": [
+        1920,
+        1440
+      ],
+      "projected_house_bounds": [
+        0.07499999552965164,
+        0.24814872443675995,
+        0.921977162361145,
+        0.7301199436187744
+      ]
+    },
+    {
+      "side": "west",
+      "title": "West side",
+      "height_above_ground_m": 10,
+      "camera_location_m": [
+        0.34563541412353516,
+        32.537498474121094,
+        9.260000228881836
+      ],
+      "look_at_m": [
+        0.34563541412353516,
+        0.5375003814697266,
+        3.7553200721740723
+      ],
+      "lens_mm": 39.577967741115415,
+      "projection": "perspective",
+      "scene": "Render | West side | 10m above ground",
+      "file": "10m/west.png",
+      "resolution": [
+        1920,
+        1440
+      ],
+      "projected_house_bounds": [
+        0.08832132816314697,
+        0.10497816652059555,
+        0.895415186882019,
+        0.7132576107978821
+      ]
+    }
+  ]
+}

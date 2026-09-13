@@ -1,6 +1,45 @@
 # Saguramo house model
 
-## Latest: two columns per railing and matching terrace tiles
+## Second-floor concept: expanded terrace and centered mansard
+
+Open **Saguramo_House_Second_Floor_Concept.blend** on `feat/second-floor`. The upside-down-V mansard has symmetric slopes and its ridge remains **5.00m above the wooden floor** (8.25064m above the main floor). Both **east and west terraces are 1.50m deep**, measured from the deck edge to the gable plane. The north eave remains at the north deck edge.
+
+The latest yellow outline expands the deck south to one straight edge aligned with the Entrance-side deck boundary. This adds **17.3116m²**, making the deck **194.418m²**. The red south roof boundary is traced approximately 1.45m farther south, giving a **10.18 × 9.60m** main roof footprint. Its ridge and both end glass doors share the new exact centerline. The south boundary placement is estimated from the marked drawing; the end terrace depths are the owner's explicit dimensions.
+
+A broad shed dormer on the **south slope (negative local X)** contains an enclosed room with a central glazed terrace door and fixed sidelights. The dormer follows the widened south slope, retaining its east/west width and glazing style. An actual cut-out in the main roof, timber-clad walls and a sloping ceiling enclose its approximately 22.62m² gross footprint. Matching glazed doors centered in the **east and west gables** open onto their respective 1.5m terrace strips. Door dimensions, cladding and charcoal finish remain concept choices.
+
+Black **1.10m-high railings** follow the expanded south edge and the **entire west terrace**, with an opening for the existing east stair. North railings remain removed as previously requested. The deck retains its 300mm thickness and top elevation at 3.25064m, exactly 100mm above the highest original black-roof crest. Both original black roofs and all 436 other flat-stage house meshes remain unchanged; the extended deck now covers part of the south canopy footprint.
+
+The existing **1.10m-wide east staircase** keeps its position and geometry: 19 equal rises of approximately 171mm, four turning treads, timber treads and black steel framing/guards. It connects Terrace 2 to the wider east landing. The existing-house reference **Saguramo_House_Roof_Updated.blend** remains unchanged.
+
+Scenes **18 Mansard concept**, **19 Mansard plan**, **20 South dormer and terrace**, **21 East doors and staircase** and **22 West glass door** show the current stage. Renders, references, geometry and saved-file verification are in `mansard/`. Scenes 15–17 remain available; previews in `second-floor/` record the earlier flat-floor stage.
+
+![Mansard and terrace access](mansard/concept.png)
+
+![East staircase and glass door](mansard/east-stair.png)
+
+Rebuild in this order; the first builder resets the concept to the historical flat-floor stage before the mansard is reapplied:
+
+```bash
+.venv/bin/python second-floor/prepare_floor.py
+blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python second-floor/build_concept.py
+blender --background Saguramo_House_Second_Floor_Concept.blend --python second-floor/verify_concept.py
+.venv/bin/python mansard/prepare_mansard.py
+blender --background Saguramo_House_Second_Floor_Concept.blend --threads 8 --python mansard/build_mansard.py
+blender --background Saguramo_House_Second_Floor_Concept.blend --python mansard/verify_mansard.py
+```
+
+Final verification reopens the saved model and confirms both 1.50m end terraces, the expanded deck footprint and unchanged deck height/thickness, the centered ridge and end doors, equal roof pitches and 5m ridge height. It checks full west and south guards, the clear stair opening, all three glazed wall openings and 35 closed deck/roof/room/stair solids. All 436 protected house meshes and 150 existing stair meshes are identical. The earlier flat-stage validator applies before the terrace expansion and mansard builder.
+
+## Exterior renders at 2m and 10m
+
+Eight **1920 × 1440 PNGs** show the current model from the southeast corner, southwest corner, south side and west side, with perspective cameras 2m and 10m above the model's outdoor ground surface. Each height pair uses the same horizontal position and lens. The source Blender model is unchanged.
+
+[Open the render gallery](renders/exterior-heights/index.html) · [Download all eight PNGs](renders/exterior-heights/exterior-renders.zip) · [Camera details and reproduction](renders/exterior-heights/README.md)
+
+![Exterior views at both heights](renders/exterior-heights/comparison.jpg)
+
+## Existing house: two columns per railing and matching terrace tiles
 
 The Terrace 1 side of the basement railing now terminates at the existing black canopy column. Each railing has one additional 85mm square roof-height column, with its centre **1.00m from Bathroom 2's exterior wall** along the railing. The west railing also has a full-height end column replacing its former short end post, so **both east and west railings now have two full-height columns**. Their tops fit the existing sloping soffit. The east railing remains as previously approved; stair access remains open.
 
