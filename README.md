@@ -1,6 +1,21 @@
 # Saguramo house model
 
-## Latest: Childroom terrace door and basement railings
+## Latest: railing columns and Terrace 1 tiles
+
+The Terrace 1 side of the basement railing now terminates at the existing black canopy column. Each railing has one additional 85mm square roof-height column, with its centre **1.00m from Bathroom 2's exterior wall** along the railing. Their tops fit the existing sloping soffit. The terrace-side run is aligned with the existing column; stair access remains open.
+
+Terrace 1 and its entry steps now have square tiles with mottled grey, taupe and brown colouring, pale weathered patches and thin grout joints, based on the owner's tile photograph. **500mm tile size is an estimate**, not a supplied measurement. This is a self-contained procedural Blender material. Scene **13 Basement railings** shows the corrected supports and scene **14 Terrace 1 tiles** shows the finish; current previews are in `terrace-update/`.
+
+Apply this final stage after the door/railing stage below:
+
+```bash
+blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python terrace-update/update_terrace.py
+blender --background Saguramo_House_Roof_Updated.blend --python terrace-update/verify_terrace.py
+```
+
+Saved-file validation confirms the two column offsets and roof joins, direct contact between the terrace railing and existing column, 81 closed replacement/additional railing meshes, 410 unchanged unrelated meshes, and unchanged geometry for all five newly tiled floor/step meshes. The earlier validators apply to their respective build stages.
+
+## Childroom terrace door and basement railings
 
 Open **Saguramo_House_Roof_Updated.blend**. The Childroom opening onto Terrace 1 now matches the supplied close-up: full-height glazing on both sides, a central pleated insect screen, black framing and a low threshold. Its surveyed width and position are retained; the 2.50m head height and panel proportions are photo estimates.
 
@@ -16,7 +31,7 @@ blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python deta
 blender --background Saguramo_House_Roof_Updated.blend --python detail-update/verify_details.py
 ```
 
-The detail builder expects the roof-only stage as input. The current full model is checked with `detail-update/verify_details.py`; the older roof validator applies before the detail stage.
+The detail builder expects the roof-only stage as input. Use `detail-update/verify_details.py` at this build stage, before the final terrace refinements; the older roof validator applies before the detail stage.
 
 ## Drone roof and brick finish
 
