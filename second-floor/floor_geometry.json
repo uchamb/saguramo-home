@@ -1,6 +1,6 @@
 {
-  "floor_level_m": 3.0,
-  "illustrative_thickness_m": 0.06,
+  "clearance_above_black_roof_m": 0.1,
+  "floor_thickness_m": 0.3,
   "footprint_basis": "Exact union of former red roof plan footprints, including its small corner hip and existing overhangs",
   "area_m2": 177.1064,
   "geometry": {

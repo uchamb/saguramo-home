@@ -12,6 +12,15 @@ plaster=bpy.data.materials['Warm interior plaster']
 def gs(o):return hashlib.sha256(repr(([tuple(v.co) for v in o.data.vertices],[tuple(p.vertices) for p in o.data.polygons],list(o.matrix_world))).encode()).hexdigest()
 def sig(o):return hashlib.sha256((gs(o)+repr(([m.name for m in o.data.materials],[p.material_index for p in o.data.polygons]))).encode()).hexdigest()
 source_hash=hashlib.sha256(Path(bpy.data.filepath).read_bytes()).hexdigest()
+# Measure evaluated geometry, including corrugation crests and folded flashing.
+deps=bpy.context.evaluated_depsgraph_get();black_heights=[]
+for ob in COL['05'].objects:
+ if ob.type!='MESH' or not any(m and m.name=='Roof | new black coated metal' for m in ob.data.materials):continue
+ evaluated=ob.evaluated_get(deps);mesh=evaluated.to_mesh()
+ black_heights.append((max((evaluated.matrix_world@v.co).z for v in mesh.vertices),ob.name));evaluated.to_mesh_clear()
+black_highest,black_highest_object=max(black_heights)
+floor_top=black_highest+G['clearance_above_black_roof_m'];floor_bottom=floor_top-G['floor_thickness_m']
+
 original={o.name:sig(o) for o in bpy.data.objects if o.type=='MESH'}
 wall_shapes={o.name:gs(o) for o in COL['01'].objects if o.type=='MESH'}
 red=bpy.data.materials['Roof | reddish coated metal'];remove=[o for o in COL['05'].objects if o.type=='MESH' and red in list(o.data.materials)]
@@ -21,7 +30,7 @@ for o in COL['05'].objects:
  x,y=o.location.xy
  faces=[f for f in R['roof_faces'] if f['structural'] and any(inside((x,y),t) for t in f['triangles'])]
  if faces and all(f['material']=='red' for f in faces):remove.append(o)
-# Old ceiling boards above 3m would protrude through the new 3m surface.
+# Remove superseded ceiling boards within the new floor volume.
 # Retain exactly the parts below black roofs; remove the ceiling overlay below the new floor.
 ceiling_remainders=[]
 for o in list(COL['05'].objects):
@@ -63,13 +72,13 @@ l.new(geo.outputs['Position'],boards.inputs['Vector']);l.new(mix.outputs[0],boar
 bump=n.new('ShaderNodeBump');bump.invert=True;bump.inputs['Distance'].default_value=.0014;bump.inputs['Strength'].default_value=.5;l.new(boards.outputs['Fac'],bump.inputs['Height'])
 bump2=n.new('ShaderNodeBump');bump2.inputs['Distance'].default_value=.00035;bump2.inputs['Strength'].default_value=.25;l.new(grain.outputs['Fac'],bump2.inputs['Height']);l.new(bump.outputs[0],bump2.inputs['Normal']);l.new(bump2.outputs[0],bs.inputs['Normal']);bs.inputs['Roughness'].default_value=.52
 wood['finish']='Natural warm oak floor boards with staggered joints and fine grain';wood['dimensions_basis']='Illustrative 160mm-wide, 1.8m-long pattern; no product specified'
-slab=prism('CONCEPT | flat second-floor timber deck | top 3.00m',G['geometry'],3-G['illustrative_thickness_m'],3,wood,'05')
+slab=prism('CONCEPT | raised second-floor timber deck | 300mm thick',G['geometry'],floor_bottom,floor_top,wood,'05')
 slab.data.materials.append(plaster)
 for face in slab.data.polygons:
  if face.normal.z<-.5:face.material_index=1
-slab['surface_height_m']=3;slab['stage']=G['stage'];slab['thickness_basis']='60mm visual floor build-up below requested 3.00m surface; not a structural specification';slab['footprint_basis']=G['footprint_basis'];slab['area_m2']=G['area_m2']
+slab['surface_height_m']=floor_top;slab['thickness_m']=G['floor_thickness_m'];slab['clearance_above_black_roof_m']=G['clearance_above_black_roof_m'];slab['stage']=G['stage'];slab['thickness_basis']='Owner-specified 300mm thickness, with top 100mm above evaluated black-roof maximum';slab['footprint_basis']=G['footprint_basis'];slab['area_m2']=G['area_m2']
 # Recess only hidden wall-cap vertices by 1mm to avoid coplanar self-shadowing.
-# The requested finished floor remains exactly 3.00m; visible wall footprint,
+# Preserve the initial concept wall-cap clearance; visible wall footprint,
 # openings and lower wall vertices are unchanged.
 capped=[];wall_adjustments={}
 for wall in COL['01'].objects:
@@ -83,7 +92,7 @@ assert all(sig(bpy.data.objects[k])==v for k,v in unchanged.items())
 assert all(gs(bpy.data.objects[k])==v for k,v in wall_shapes.items() if k not in wall_adjustments)
 black_names=[o.name for o in COL['05'].objects if o.type=='MESH' and o.name in unchanged]
 # New views clearly distinguish the open concept from the retained existing model.
-base=bpy.data.scenes['01 Exterior'];views=[('15 Second floor concept','concept',(-24,-27,23),(0,1,1),30),('16 Second floor plan','plan',(.6,1.6,40),(.6,1.6,0),24),('17 Timber floor detail','wood-detail',(3,-6,8),(1,-2,3),6.5)]
+base=bpy.data.scenes['01 Exterior'];views=[('15 Second floor concept','concept',(-24,-27,23),(0,1,1),30),('16 Second floor plan','plan',(.6,1.6,40),(.6,1.6,0),24),('17 Timber floor detail','wood-detail',(3,-6,8),(1,-2,floor_top),6.5)]
 for title,key,pos,target,scale in views:
  sc=bpy.data.scenes.new(title)
  for c in base.collection.children:sc.collection.children.link(c)
@@ -92,13 +101,14 @@ for title,key,pos,target,scale in views:
  sc.world=base.world;sc.unit_settings.system='METRIC';sc.render.engine='CYCLES';sc.cycles.samples=40;sc.cycles.use_denoising=True;sc.render.resolution_x=1700 if key=='concept' else 1300;sc.render.resolution_y=1300;sc.render.resolution_percentage=100;sc.render.image_settings.file_format='PNG';sc.view_settings.view_transform='AgX'
  for c in sc.view_layers[0].layer_collection.children:c.exclude=c.name[:2]=='08'
  sc.render.filepath=str(P/(key+'.png'))
-notes='''SECOND-FLOOR CONCEPT — FLAT WOODEN FLOOR ONLY
+notes=f'''SECOND-FLOOR CONCEPT — FLAT WOODEN FLOOR ONLY
 
 All former red roof panels, ribs, ridges, hips, raised gable and their perimeter
 trim are removed in this concept. Their combined plan footprint becomes a flat
-wooden floor with its top exactly 3.00m above the main floor, at wall-top level.
-Warm oak board finish is procedural. The 60mm visual floor thickness extends
-downwards from 3m; board sizes and floor build-up are illustrative.
+wooden floor with its top {floor_top:.5f}m above the main floor, exactly 100mm
+above the highest black-roof point ({black_highest:.5f}m, including ribs).
+The floor is 300mm thick, with its underside at {floor_bottom:.5f}m.
+Warm oak board finish is procedural; board sizes remain illustrative.
 
 Both black roof sections, their slopes, corrugations, supports, soffits and
 associated trim are retained. Old ceiling portions above the new floor are
@@ -117,7 +127,7 @@ for screen in bpy.data.screens:
   if area.type=='VIEW_3D':
    area.spaces.active.shading.type='MATERIAL';area.spaces.active.region_3d.view_rotation=bpy.data.objects['Camera second-floor concept'].rotation_euler.to_quaternion();area.spaces.active.region_3d.view_location=(0,1,1);area.spaces.active.region_3d.view_distance=32
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'Saguramo_House_Second_Floor_Concept.blend'))
-report={'source_model_sha256':source_hash,'removed_roof_and_ceiling_objects':removed,'wall_top_clearance_m':.001,'wall_top_adjustments':wall_adjustments,'unchanged_mesh_signatures':unchanged,'wall_geometry_signatures':wall_shapes,'protected_black_roof_objects':black_names,'floor_object':slab.name,'floor_top_m':3.0,'floor_bottom_m':2.94,'floor_area_m2':G['area_m2'],'retained_ceiling_parts':[r['room_id'] for r in ceiling_remainders],'scene_count':17,'mansard_added':False}
+report={'source_model_sha256':source_hash,'removed_roof_and_ceiling_objects':removed,'wall_top_clearance_m':.001,'wall_top_adjustments':wall_adjustments,'unchanged_mesh_signatures':unchanged,'wall_geometry_signatures':wall_shapes,'protected_black_roof_objects':black_names,'floor_object':slab.name,'floor_top_m':floor_top,'floor_bottom_m':floor_bottom,'floor_thickness_m':G['floor_thickness_m'],'black_roof_highest_m':black_highest,'black_roof_highest_object':black_highest_object,'clearance_above_black_roof_m':G['clearance_above_black_roof_m'],'floor_area_m2':G['area_m2'],'retained_ceiling_parts':[r['room_id'] for r in ceiling_remainders],'scene_count':17,'mansard_added':False}
 (P/'build_validation.json').write_text(json.dumps(report,indent=2)+'\n')
 for title,key,*_ in views:bpy.ops.render.render(write_still=True,scene=title)
 print('SECOND_FLOOR_CONCEPT_COMPLETE')

@@ -2,9 +2,10 @@ SECOND-FLOOR CONCEPT — FLAT WOODEN FLOOR ONLY
 
 All former red roof panels, ribs, ridges, hips, raised gable and their perimeter
 trim are removed in this concept. Their combined plan footprint becomes a flat
-wooden floor with its top exactly 3.00m above the main floor, at wall-top level.
-Warm oak board finish is procedural. The 60mm visual floor thickness extends
-downwards from 3m; board sizes and floor build-up are illustrative.
+wooden floor with its top 3.25064m above the main floor, exactly 100mm
+above the highest black-roof point (3.15064m, including ribs).
+The floor is 300mm thick, with its underside at 2.95064m.
+Warm oak board finish is procedural; board sizes remain illustrative.
 
 Both black roof sections, their slopes, corrugations, supports, soffits and
 associated trim are retained. Old ceiling portions above the new floor are

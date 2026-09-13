@@ -2,9 +2,9 @@
 
 ## Second-floor concept
 
-Open **Saguramo_House_Second_Floor_Concept.blend** for the current concept on `feat/second-floor`. The red roof is replaced by one continuous, flat, timber-finished floor with its top at **3.00m**. The floor follows the former red roof's 177.1064m² footprint, including its existing overhangs and corner section. Both black roofs retain their original geometry, slopes, corrugations, soffits and associated trim. **No mansard or upper-storey walls have been added.**
+Open **Saguramo_House_Second_Floor_Concept.blend** for the current concept on `feat/second-floor`. The red roof is replaced by one continuous, flat, timber-finished floor with a **300mm thickness** and its top **100mm above the highest black-roof point**, including the corrugation crests. The current top is **3.25064m** and underside **2.95064m** above the main floor. The floor follows the former red roof's 177.1064m² footprint, including its existing overhangs and corner section. Both black roofs retain their original geometry, slopes, corrugations, soffits and associated trim. **No mansard or upper-storey walls have been added.**
 
-The natural oak board finish is procedural. Floor thickness is an illustrative 60mm below the requested 3m surface; board sizes are illustrative. Superseded ceilings within this footprint are removed, while ceiling portions below the black roof remain. Hidden wall-top vertices have a 1mm render clearance below the floor; wall footprints, openings and all lower vertices are retained.
+The natural oak board finish is procedural. Floor thickness and roof clearance follow the owner’s dimensions; board sizes are illustrative. Superseded ceilings within this footprint are removed, while ceiling portions below the black roof remain. Hidden wall-top vertices have a 1mm render clearance below the floor; wall footprints, openings and all lower vertices are retained.
 
 The existing-house file **Saguramo_House_Roof_Updated.blend** remains unchanged. Scenes **15 Second floor concept**, **16 Second floor plan** and **17 Timber floor detail** show the new concept. Preview and validation files are in `second-floor/`.
 
@@ -14,7 +14,7 @@ blender --background Saguramo_House_Roof_Updated.blend --threads 8 --python seco
 blender --background Saguramo_House_Second_Floor_Concept.blend --python second-floor/verify_concept.py
 ```
 
-Verification reopens the concept, checks the 3.00m planar surface and closed floor solid, confirms removal of all red roof objects, checks the preserved black roof slopes and 409 unchanged meshes, and verifies the source house file remains byte-for-byte unchanged. Rebuilding this stage resets the concept to this initial flat-floor design.
+Verification reopens the concept, checks the 300mm thickness, 100mm clearance above the evaluated black roof, planar surface and closed floor solid, confirms removal of all red roof objects, checks the preserved black roof slopes and 409 unchanged meshes, and verifies the source house file remains byte-for-byte unchanged. Rebuilding this stage resets the concept to the current flat-floor design.
 
 ## Existing house: two columns per railing and matching terrace tiles
 

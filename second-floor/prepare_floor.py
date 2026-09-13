@@ -18,6 +18,6 @@ for r in D['levels']['main']:
  if overlap.area<1e-6:continue
  remaining=p.difference(g)
  ceilings.append({'room_id':r['id'],'original_bounds':list(p.bounds),'remaining_under_black_roof':geom(remaining),'removed_area_m2':overlap.area})
-report={'floor_level_m':3.0,'illustrative_thickness_m':.06,'footprint_basis':'Exact union of former red roof plan footprints, including its small corner hip and existing overhangs','area_m2':g.area,'geometry':geom(g),'red_structural_surfaces':[f['name'] for f in red],'ceilings':ceilings,'stage':'Flat timber-finished second-floor concept only; no mansard, upper walls or roof added','wood_finish':'Natural warm oak boards; 160mm x 1800mm pattern is illustrative'}
+report={'clearance_above_black_roof_m':.10,'floor_thickness_m':.30,'footprint_basis':'Exact union of former red roof plan footprints, including its small corner hip and existing overhangs','area_m2':g.area,'geometry':geom(g),'red_structural_surfaces':[f['name'] for f in red],'ceilings':ceilings,'stage':'Flat timber-finished second-floor concept only; no mansard, upper walls or roof added','wood_finish':'Natural warm oak boards; 160mm x 1800mm pattern is illustrative'}
 (P/'floor_geometry.json').write_text(json.dumps(report,indent=2)+'\n')
 print('Flat floor footprint',g.area,'m2; affected ceiling rooms',len(ceilings))

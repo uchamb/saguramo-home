@@ -767,9 +767,13 @@
     "ROOF | black perimeter fascia.006",
     "ROOF | black perimeter fascia.007"
   ],
-  "floor_object": "CONCEPT | flat second-floor timber deck | top 3.00m",
-  "floor_top_m": 3.0,
-  "floor_bottom_m": 2.94,
+  "floor_object": "CONCEPT | raised second-floor timber deck | 300mm thick",
+  "floor_top_m": 3.2506400108337403,
+  "floor_bottom_m": 2.9506400108337405,
+  "floor_thickness_m": 0.3,
+  "black_roof_highest_m": 3.1506400108337402,
+  "black_roof_highest_object": "ROOF ribs | Dark south veranda canopy",
+  "clearance_above_black_roof_m": 0.1,
   "floor_area_m2": 177.1064,
   "retained_ceiling_parts": [
     44

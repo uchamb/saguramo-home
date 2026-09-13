@@ -1,7 +1,11 @@
 {
   "concept_file_reopened": true,
   "original_house_file_unchanged": true,
-  "flat_floor_top_m": 3.0,
+  "flat_floor_top_m": 3.2506399154663086,
+  "floor_bottom_m": 2.9506399631500244,
+  "floor_thickness_m": 0.2999999523162842,
+  "black_roof_highest_m": 3.1506400108337402,
+  "clearance_above_black_roof_m": 0.09999990463256836,
   "floor_area_m2": 177.10638809204102,
   "closed_floor_solid": true,
   "red_roof_geometry_removed": true,
